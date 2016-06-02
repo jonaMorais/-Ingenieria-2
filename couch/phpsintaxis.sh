@@ -1,0 +1,1 @@
+find \( -path ./vendor -o -path ./DataTables -o -path ./dompdf -o -path ./api-rest/Slim -o -path ./api-rest/tests \) -prune -o -name '*.php' -exec php -l {} \;
