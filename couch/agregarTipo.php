@@ -43,7 +43,7 @@
 				</div>
 			</div>
 
-			<form class="form-horizontal" action="#" method="POST" onsubmit=" return validarNuevoCouch(this)">
+			<form class="form-horizontal" action="validarTipoCouch.php" method="POST" onsubmit=" return validarNuevoCouch(this)">
 				<fieldset>
 					
 						<b>
