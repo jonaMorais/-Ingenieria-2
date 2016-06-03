@@ -35,7 +35,7 @@
 				<div class="panel-body">
 					<ul id="opciones">
 						<li><a href="agregarTipo.php">Agregar tipo de couch</a></li>
-						<li><a href="#">Listar tipos</a></li>
+						<li><a href="listarTipos.php">Listar tipos</a></li>
 						<li><a href="#">Algo</a></li>
 						<li><a href="#">Algo</a></li>
 						<li><a href="#">Algo</a></li>

@@ -32,7 +32,7 @@
 					if($nom['roll']!=null){?>
 						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Administracion<b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Ver tipos de couch</a></li>
+								<li><a href="listarTipos.php">Ver tipos de couch</a></li>
 								<li><a href="agregarTipo.php">Agregar tipo de couch</a></li>
 								<li><a href="modificar_tipo.php">Modificar tipo de couch</a></li>
 								<li><a href="#">Eliminar tipo de couch</a></li>

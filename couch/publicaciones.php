@@ -24,34 +24,56 @@
 
 		?>
 
-		<main>
+		<main class="container">
 
-
-			<div id="lateral" class="panel panel-success">
-				<div class="panel-heading-custom">
-					<h3 class="panel-title">Panel title</h3>
-				</div>
-				<div class="panel-body">
-					<ul id="opciones">
-						<li><a href="#">Opcion numero 1</a></li>
-						<li><a href="#">Opcion numero 2</a></li>
-						<li><a href="#">Opcion numero 3</a></li>
-						<li><a href="#">Opcion numero 4</a></li>
-						<li><a href="#">Opcion numero 5</a></li>
-						<li><a href="#">Opcion numero 6</a></li>
-					</ul>
-				</div>
-			</div>
-
-
-			<form class="form-horizontal">
-				<h3>Textito</h3>
-				<p>Publicaciones</p>
-			</form>
-
-		</main>
+			<?php
 		
-		<blockquote>
+				//---Incluimos el listado de TODAS las publicaciones
+				include_once('todaspublicaciones.php');
+
+				if($numRow > 0){
+					?>
+					<div class="panel panel-default col-sm-7 col-sm-offset-2">
+						<div class="panel-heading">
+							<h2>Todos los Couch</h2>							
+						</div>
+						<div class="panel-body">
+						<table class="table table hover">
+							<tr>
+								<th>Titulo</th>
+								<th>Descripcion</th>
+								<th>Fotos</th>
+							</tr>
+					<?php
+					
+					foreach ($fila as $f) {
+						?>
+							<tr>
+								<td><?php echo $f['titulo']; ?></td>
+								<td><?php echo $f['descripcion']; ?></td>
+								<?php
+									echo "<td><img src=mostrarImagen.php?id_Publi=$f[idPublicacion] height=30% width=30%></td>";
+								?>
+							</tr>
+						<?php
+					}
+					?>
+						</table>
+						</div>
+						</div>
+					<?php
+				}
+				else{
+					echo "No hay datos que mostrar";
+				}
+
+			?>
+
+		</div>
+		
+		</main>
+
+		<blockquote class="container col-sm-10 col-sm-offset-0">
 
 			<footer>
 
