@@ -18,29 +18,32 @@
 				<li><a href="index.php">Inicio<span class="sr-only">(current)</span></a></li>
 				<li><a href="publicaciones.php">Publicaciones</a></li>
 			</ul>
-			<form class="navbar-form navbar-left" role="search">
+			<form class="navbar-form navbar-left" role="search" action="listado.php" method="POST" onsubmit=" return validarBusqueda(this)">
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Buscar publicacion">
-					
+					<input type="text" id="busqueda" name="busqueda" class="form-control" placeholder="Buscar couch">
+					<input class="btn btn-default" type="button" value="Avanzado" onclick="window.location.href='./avanzado.php'">
 					<input type="submit" class="btn btn-default" value="buscar">
 				</div>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
 			<?php
-				if($sesion->get() != false){
+				if($sesion->get()!=false){
+					$nom=$sesion->get();
+					if($nom['roll']!=null){?>
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Administracion<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Ver tipos de couch</a></li>
+								<li><a href="agregarTipo.php">Agregar tipo de couch</a></li>
+								<li><a href="modificar_tipo.php">Modificar tipo de couch</a></li>
+								<li><a href="#">Eliminar tipo de couch</a></li>
+							</ul>
+						</li><?php
+					}
 					echo "<li><a href=#>Publicar Couch</a></li>";
-					$datos = $sesion->get();
 					?>
-					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $datos['email'];?><b class="caret"></b></a>
+					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $nom['email'];?><b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="#">Perfil</a></li>
-							<?php
-								if($datos['roll'] != null){
-									?>
-										<li><a href="administracion.php">Administracion</a></li>
-									<?php
-								}			
-							?>
 							<li><a href="cambiarContr.php">Modificar constraseña</a></li>
 							<li><a href="logout.php">Cerrar Sesión</a></li>
 						</ul>

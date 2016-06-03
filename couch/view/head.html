@@ -3,9 +3,24 @@
 	<meta charset="UTF-8">
 	<title>CouchInn</title>
 	<script src="js/jquery-1.12.3.min.js"></script>
+	<link rel="shortcut icon" href="img/loguito.png" />
 	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.6/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/estiloCouch.css">
 	<script src="bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
 	<script src="js/validar.js"></script>
+	<link rel="stylesheet" href="css/smoothness/jquery-ui.css">
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script>
+		$(function() {
+			$( "#datepicker, #datepicker2" ).datepicker({
+				showOn: "button",
+				buttonImage: "img/calendar.gif",
+				buttonImageOnly: true,
+				buttonText: "Select date"
+			});
+			$( "#datepicker, #datepicker2" ).datepicker( "option", "dateFormat", "dd-mm-yy" );
+		});
+	</script>
 
 </head>
