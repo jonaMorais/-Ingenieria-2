@@ -15,9 +15,10 @@
 			$res=mysql_query($con,$enlace);
 			if(mysql_num_rows($res)>0){
 				if($oc!=null){
-					$con2="SELECT * FROM `publicacion` p INNER JOIN `tipo_hospedaje` th ON (p.idTipo=th.idTipo)";
+					$con2="SELECT * FROM `tipo_hospedaje` th WHERE th.`idTipo` NOT IN ( SELECT p.idTipo FROM `publicacion` p WHERE p.`idTipo`=th.`idTipo`)";
 					$res2=mysql_query($con2,$enlace);
-					if(mysql_num_rows($res2)==0){
+					echo mysql_num_rows($res2);
+					if(mysql_num_rows($res2)!=0){
 						$con3="UPDATE `tipo_hospedaje` SET `nombre`='$nom', `oculto`='$oc' WHERE `tipo_hospedaje`.`idTipo`='$id'";
 						$res3=mysql_query($con3,$enlace);
 						if($res3){
