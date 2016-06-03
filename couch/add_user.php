@@ -20,28 +20,28 @@
 							if(mysql_num_rows($res)==0){
 								$res=mysql_query($con2,$enlace);
 								?><script type="text/javascript">alert("Usuario agregado.");</script>
-								<script type="text/javascript">window.location.replace("./registro.html");</script>
+								<script type="text/javascript">window.location.replace("./registro.php");</script>
 								<?php
 							}
 							else{
 								?><script type="text/javascript">alert("Ya existe un usuario con ese E-mail.");</script><?php
-								?><script type="text/javascript">window.location.replace("./registro.html");</script><?php
+								?><script type="text/javascript">window.location.replace("./registro.php");</script><?php
 							}
 							mysql_close($enlace);
 						}
 						else{
 							?><script type="text/javascript">window.location.replace("El campo telefono esta vacio.");</script><?php
-							?><script type="text/javascript">window.location.replace("./registro.html");</script><?php
+							?><script type="text/javascript">window.location.replace("./registro.php");</script><?php
 						}
 					}
 					else{
 						?><script type="text/javascript">window.location.replace("El campo fecha de nacimiento esta vacio.");</script><?php
-						?><script type="text/javascript">window.location.replace("./registro.html");</script><?php
+						?><script type="text/javascript">window.location.replace("./registro.php");</script><?php
 					}
 				}
 				else{
 					?><script type="text/javascript">window.location.replace("El campo contraseña esta vacio.");</script><?php
-					?><script type="text/javascript">window.location.replace("./registro.html");</script><?php
+					?><script type="text/javascript">window.location.replace("./registro.php");</script><?php
 				}
 			}
 			else{
