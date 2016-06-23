@@ -339,3 +339,29 @@ function validarClaveRecuperada(){
 		}
 	}
 }
+
+
+//PUMA
+function validarResumenSoli(){
+		var fechainicio= document.getElementById("fechaInicio");
+		var fechalimite= document.getElementById("fechaLimite");
+		if(fechainicio.value != null){
+			if(fechalimite.value != null){
+				if(fechalimite.value.length > 0){
+					if(fechainicio.value > fechalimite.value){
+						alert('La fecha de inicio es mayor que la fecha limite.');
+						return false;
+					}
+				}
+			}
+		}
+		if((fechainicio.value == null || fechainicio.value.length == 0)){
+			alert('Complete el campo fecha inicio');
+			return false;
+		}
+		if((fechalimite.value == null || fechalimite.value.length == 0)){
+			alert('Complete el campo fecha limite');
+			return false;
+		}
+		return true;
+}
