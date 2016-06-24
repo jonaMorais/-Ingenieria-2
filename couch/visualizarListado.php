@@ -39,7 +39,7 @@
 					$fechaLim=$_POST['datepicker2'];
 					$consulta="	SELECT *
 								FROM usuariosolicita
-								WHERE ((fechaSolicitud>='$fechaIni') and (fechaSolicitud<='$fechaLim')and (estado='aceptado'))";
+								WHERE ((fechaAceptado>='$fechaIni') and (fechaAceptado<='$fechaLim')and (estado='aceptado'))";
 					$res=busqueda($consulta);
 					
 					if(!empty($res)){
@@ -48,7 +48,7 @@
 						?>
 						<div class="panel panel-default col-sm-8 col-sm-offset-2">
 							<div class="panel-heading">
-								<h2>Resumen de solicitudes</h2>							
+								<h2>Resumen de solicitudes aceptadas</h2>							
 							</div>
 							<div class="panel-body">
 								<table class="table table hover">
@@ -87,8 +87,11 @@
 							<?php
 					}else{
 						
-						?>	<script type="text/javascript">alert("No hay solicitudes aceptadas entre fecha la inicio y la fecha limite");</script>
-							<script type="text/javascript">window.location.replace("./obtenerResumen.php");</script>
+						?>	
+							<div class="alert alert-info">
+								<strong>No hay solicitudes aceptadas entre fecha la inicio y la fecha limite</strong> 
+							</div>
+							
 						<?php
 					}
 					
@@ -96,8 +99,11 @@
 					mysqli_close($enlace);
 
 				}else{
-					?><script type="text/javascript">alert("No hay datos de fechas para obtener el resumen");</script>
-					<script type="text/javascript">window.location.replace("./obtenerResumen.php");</script><?php
+					?>
+						<div class="alert alert-info">
+							<strong>No hay datos de fechas para obtener el resumen</strong> 
+						</div>
+					<?php
 				}
 				
 				

@@ -22,6 +22,19 @@
 		?>
 
 		<main class="container">
+			<div class="panel panel-default col-sm-8 col-sm-offset-2">
+				<div class="panel-heading">
+					<h2>Solicitudes realizadas</h2>							
+				</div>
+				<div class="panel-body">
+				<table class="table table hover">
+					<tr>
+						<th>Foto</th>
+						<th>Titulo publicacion</th>
+						<th>Descripcion</th>
+						<th>Estado</th>
+						<th>Fecha de solicitud<th>
+					</tr>
 			<?php
 				$idUsuario=$sesion->getIdUsuario();
 				require_once('busqueda.php');
@@ -38,19 +51,7 @@
 						$res2=mysqli_query($enlace,$consultaNombre);
 						$rows2=mysqli_fetch_array($res2);
 			?>
-			<div class="panel panel-default col-sm-8 col-sm-offset-2">
-				<div class="panel-heading">
-					<h2>Solicitudes realizadas</h2>							
-				</div>
-				<div class="panel-body">
-				<table class="table table hover">
-					<tr>
-						<th>Foto</th>
-						<th>Titulo publicacion</th>
-						<th>Descripcion</th>
-						<th>Estado</th>
-						<th>Fecha de solicitud<th>
-					</tr>
+			
 					<tr>
 						<td><?php echo "<img src=mostrarImagen.php?id_Publi=".$resul['idPublicacion']." id='imagen' class='img-rounded'>"; ?></td>
 						<td><a href=visualizarpublicacion.php?idpubli=<?php echo $resul['idPublicacion']?>><?php echo $rows2[0] ?></a></td>
@@ -65,10 +66,11 @@
 
 			<?php
 				}else{
-			?>		<script type="text/javascript">alert("No hay solicitudes realizadas");</script>
-					
+			?>	
+					<div class="alert alert-info">
+							<strong>No hay solicitudes realizadas</strong> 
+					</div>
 			<?php
-					echo "No hay solicitudes realizadas.";
 					mysqli_close($enlace);
 				}
 			?>
